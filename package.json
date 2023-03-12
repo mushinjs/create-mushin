@@ -1,7 +1,7 @@
 {
   "name": "create-mushin",
   "type": "module",
-  "version": "0.1.0-beta.3",
+  "version": "0.2.0",
   "author": "Setobox",
   "license": "MIT",
   "module": "dist/index.js",

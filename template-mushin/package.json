@@ -1,0 +1,10 @@
+{
+  "name": "mushin-app",
+  "private": true,
+  "scripts": {
+    "start": "mushin start"
+  },
+  "devDependencies": {
+    "mushin": "~0.1.0"
+  }
+}

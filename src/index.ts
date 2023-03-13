@@ -25,8 +25,13 @@ async function init() {
   const name = await getName()
   const projectDir = resolve(cwd, name)
 
-  const existFiles = await readdir(projectDir)
-  if (existFiles.length > 0) {
+  let exist = false
+  await mkdir(projectDir, {}).catch((error) => {
+    if (error.code === 'EEXIST') {
+      exist = true
+    }
+  })
+  if (exist) {
     const { overwrite } = await prompts({
       type: 'confirm',
       name: 'overwrite',
@@ -52,7 +57,6 @@ async function init() {
     }
   }
 
-  // Ask the user whether to run "pnpm install"
   const { install } = await prompts({
     type: 'confirm',
     name: 'install',
@@ -67,7 +71,7 @@ async function init() {
         process.exit(1)
       }
       console.log('Dependencies installed successfully.')
-      // Ask the user whether to run "pnpm start"
+
       const { start } = await prompts({
         type: 'confirm',
         name: 'start',

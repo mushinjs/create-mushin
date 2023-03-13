@@ -1,13 +1,13 @@
 {
   "name": "create-mushin",
   "type": "module",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "author": "Setobox",
   "license": "MIT",
   "module": "dist/index.js",
   "bin": "dist/index.js",
   "files": [
-    "template-*",
+    "template-mushin",
     "dist"
   ],
   "engines": {
@@ -15,15 +15,15 @@
   },
   "scripts": {
     "build": "tsup src/index.ts --format esm --clean",
-    "lint": "eslint . --fix"
+    "prepublish": "pnpm build"
   },
   "dependencies": {
-    "@types/node": "^18.15.0",
-    "prompts": "^2.4.2",
-    "tsup": "^6.6.3",
-    "typescript": "^4.9.5"
+    "prompts": "^2.4.2"
   },
   "devDependencies": {
-    "@types/prompts": "^2.4.3"
+    "@types/node": "^18.15.0",
+    "@types/prompts": "^2.4.3",
+    "tsup": "^6.6.3",
+    "typescript": "^4.9.5"
   }
 }
